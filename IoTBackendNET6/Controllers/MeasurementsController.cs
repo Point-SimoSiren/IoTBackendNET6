@@ -20,6 +20,30 @@ namespace IoTBackendNET6.Controllers
             return Ok(measurements);
         }
 
+        // Anna komento talletettavaksi staattiseen luokkamuuttujaan
+        [HttpPost]
+        [Route("command")]
+        public ActionResult GiveCommand(string c)
+        {
+            Command.Cmd = c;
+            return Ok("Tallennettu komento" + c);
+        }
+
+        // Lue komento staattisesta luokkamuuttujasta
+        [HttpGet]
+        [Route("command")]
+        public ActionResult GetCommand()
+        {
+            string command = Command.Cmd;
+            if (string.IsNullOrEmpty(command)) {
+                return Ok("No command this time");
+            }
+            else {
+                Command.Cmd = null;
+                return Ok(command);
+            }
+        }
+
 
         [HttpPost]
         [Route("")]
