@@ -33,10 +33,6 @@ namespace IoTBackendNET6.Models
             {
                 entity.Property(e => e.MeasurementId).HasColumnName("measurement_id");
 
-                entity.Property(e => e.Command)
-                    .HasMaxLength(20)
-                    .HasColumnName("command");
-
                 entity.Property(e => e.DeviceId).HasColumnName("device_id");
 
                 entity.Property(e => e.Humidity)

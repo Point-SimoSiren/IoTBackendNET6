@@ -11,7 +11,6 @@ namespace IoTBackendNET6.Models
         public decimal? Temperature { get; set; }
         public decimal? Humidity { get; set; }
         public decimal? Pressure { get; set; }
-        public string? Command { get; set; }
         public string? Optional { get; set; }
     }
 }

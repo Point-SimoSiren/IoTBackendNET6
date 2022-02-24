@@ -23,10 +23,10 @@ namespace IoTBackendNET6.Controllers
         // Anna komento talletettavaksi staattiseen luokkamuuttujaan
         [HttpPost]
         [Route("command")]
-        public ActionResult GiveCommand([FromBody] string c)
+        public ActionResult GiveCommand([FromBody] CommandInput commandIn)
         {
-            Command.Cmd = c;
-            return Ok("Tallennettu komento" + c);
+            Command.Cmd = commandIn.Cmd;
+            return Ok("Tallennettu komento" + Command.Cmd);
         }
 
         // Lue komento staattisesta luokkamuuttujasta
@@ -36,7 +36,7 @@ namespace IoTBackendNET6.Controllers
         {
             string command = Command.Cmd;
             if (string.IsNullOrEmpty(command)) {
-                return Ok("No command this time");
+                return Ok("nocommand");
             }
             else {
                 Command.Cmd = null;
